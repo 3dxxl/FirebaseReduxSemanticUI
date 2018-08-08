@@ -16,7 +16,7 @@ firebase.initializeApp(config);
  export const loginUser = (email, password) => {
     try {
         var that = this;
-        firebase.auth().signInWithEmailAndPassword(email, password).then(function (user) {
+        firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password).then(function (user) {
             //Start Profile Page
             that.props.history.push("/Hauptseite")
 

@@ -3,7 +3,7 @@ import {reducer} from './MeinReducer';
 
 export const initialState = {
 
-    istEingeloggt: false
+    istEingeloggt: "red"
 
 };
 

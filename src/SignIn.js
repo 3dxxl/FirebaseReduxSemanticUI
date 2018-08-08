@@ -3,7 +3,9 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link, Redirect,withRouter } from "react-router-dom";
 import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react'
 
-
+import {connect} from 'react-redux';
+import {actionCreators} from './MeineActions';
+import App from './App';
 
 
 
@@ -100,6 +102,8 @@ class SignIn extends Component {
 
                                 <Button color='teal' fluid size='large'
                                  onClick={this.props.einLoggAction}
+                                 //onClick={() => this.loginUser(this.state.email, this.state.password)}
+
                                 >
                                     Login
               </Button>
@@ -119,6 +123,13 @@ class SignIn extends Component {
     }
 }
 
+function mapStateToProps (state) {
+
+    return {istEingeloggt: state.istEingeloggt}
+  }
+  
+  //wichtig: ich musste heir SignIn eintragen anstatt (App)
+  export const AppContainer = connect(mapStateToProps, actionCreators)(SignIn);
 
 
 export default withRouter(SignIn);

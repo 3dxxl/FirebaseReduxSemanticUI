@@ -6,7 +6,7 @@ import registerServiceWorker from './registerServiceWorker';
 import 'semantic-ui-css/semantic.min.css';
 
 import {store} from './MeinStore';
-import {AppContainer} from './App';
+import {AppContainer} from './SignIn';
 import {Provider} from 'react-redux';
 
 

@@ -20,8 +20,8 @@ export const reducer = (state = initialState, action) => {
              
 
                 ...state, 
-                isteingeloggt: true,
-                loginUser,
+                istEingeloggt: "blue"
+               // loginUser,
                 
             };
 
