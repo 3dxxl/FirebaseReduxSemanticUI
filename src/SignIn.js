@@ -4,18 +4,8 @@ import { BrowserRouter as Router, Route, Link, Redirect,withRouter } from "react
 import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react'
 
 
-import * as firebase from 'firebase';
-import Hauptseite from './EingeloggtSeite';
 
-const config = {
-    apiKey: "AIzaSyC9d_Qtdfyd6OvmUFzDTpGEiXeRIo1GHn8",
-    authDomain: "reactsema.firebaseapp.com",
-    databaseURL: "https://reactsema.firebaseio.com",
-    projectId: "reactsema",
-    storageBucket: "reactsema.appspot.com",
-    messagingSenderId: "128838847496"
-};
-firebase.initializeApp(config);
+
 
 class SignIn extends Component {
 
@@ -49,7 +39,7 @@ class SignIn extends Component {
 
 
 
-    loginUser = (email, password) => {
+  /*   loginUser = (email, password) => {
         try {
             var that = this;
             firebase.auth().signInWithEmailAndPassword(email, password).then(function (user) {
@@ -63,7 +53,7 @@ class SignIn extends Component {
         catch (error) {
             console.log(error.toString(alert("Die Eingabe ist falsch, oder Sie sind noch nicht angemeldet")))
         }
-    }
+    } */
 
 
 
@@ -109,7 +99,7 @@ class SignIn extends Component {
                                 />
 
                                 <Button color='teal' fluid size='large'
-                                    onClick={() => this.loginUser(this.state.email, this.state.password)}
+                                  onClick={this.props.einLoggAction}
                                 >
                                     Login
               </Button>
@@ -128,8 +118,6 @@ class SignIn extends Component {
         );
     }
 }
-
-
 
 
 
