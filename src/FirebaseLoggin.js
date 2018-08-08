@@ -12,8 +12,8 @@ const config = {
 };
 firebase.initializeApp(config);
 
-
- export loginUser = (email, password) => {
+//const muss ich zur funktion setzen, sonst gehts nicht
+ export const loginUser = (email, password) => {
     try {
         var that = this;
         firebase.auth().signInWithEmailAndPassword(email, password).then(function (user) {

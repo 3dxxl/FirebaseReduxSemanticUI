@@ -7,5 +7,5 @@ export const initialState = {
 
 };
 
-
-export const store = createStore(initialState, reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+//wichtig: zuerst der reducer dann der initialState = createStore(initialState, reducer, ...)
+export const store = createStore(reducer, initialState, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())

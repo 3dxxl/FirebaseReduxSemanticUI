@@ -99,7 +99,7 @@ class SignIn extends Component {
                                 />
 
                                 <Button color='teal' fluid size='large'
-                                  onClick={this.props.einLoggAction}
+                                 onClick={this.props.einLoggAction}
                                 >
                                     Login
               </Button>
