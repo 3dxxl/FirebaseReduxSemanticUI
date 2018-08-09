@@ -2,8 +2,6 @@ import {initialState} from './MeinStore';
 
 
 
-import * as firebase from 'firebase';
-import {loginUser} from './FirebaseLoggin';
 
 
 
@@ -21,7 +19,7 @@ export const reducer = (state = initialState, action) => {
 
                 ...state, 
                 istEingeloggt: "blue"
-               // loginUser,
+               
                 
             };
 

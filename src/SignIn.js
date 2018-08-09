@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 
-import { BrowserRouter as Router, Route, Link, Redirect,withRouter } from "react-router-dom";
-import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react'
+import {withRouter } from "react-router-dom";
+import { Button, Form, Grid, Header, Image, Segment } from 'semantic-ui-react';
 
 import {connect} from 'react-redux';
 import {actionCreators} from './MeineActions';
-import App from './App';
 
 
 
