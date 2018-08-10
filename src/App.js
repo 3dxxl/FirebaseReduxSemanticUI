@@ -2,10 +2,9 @@ import React, { Component } from 'react';
 import './App.css';
 import Signin from './SignIn';
 import { BrowserRouter as Router, Route } from "react-router-dom";
-
-
-
 import Hauptseite from './EingeloggtSeite';
+
+
 
 class App extends Component {
 

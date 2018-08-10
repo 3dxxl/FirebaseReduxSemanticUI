@@ -5,10 +5,11 @@ import { Button, Form, Grid, Header, Image, Segment } from 'semantic-ui-react';
 
 import {connect} from 'react-redux';
 import {actionCreators} from './MeineActions';
+import { loginUser } from './FirebaseLoggin';
 
 
 
-class SignIn extends Component {
+export class SignIn extends Component {
 
     constructor(props) {
 
@@ -25,7 +26,6 @@ class SignIn extends Component {
         this.handleChange = this.handleChange.bind(this);
         this.handleChangepas = this.handleChangepas.bind(this);
 
-
     }
 
 
@@ -37,26 +37,13 @@ class SignIn extends Component {
         this.setState({ password: event.target.value });
     }
 
+zweiFunktionen = () => {
 
+   // this.setState(loginUser, {email: this.state.email, password: this.state.password})
+      this.setState(loginUser(this.state.email, this.state.password))
 
-
-  /*   loginUser = (email, password) => {
-        try {
-            var that = this;
-            firebase.auth().signInWithEmailAndPassword(email, password).then(function (user) {
-                //Start Profile Page
-                that.props.history.push("/Hauptseite")
-
-            })
-
-        }
-
-        catch (error) {
-            console.log(error.toString(alert("Die Eingabe ist falsch, oder Sie sind noch nicht angemeldet")))
-        }
-    } */
-
-
+  //alert("Hallo")
+}
 
 
     render() {
@@ -100,9 +87,13 @@ class SignIn extends Component {
                                 />
 
                                 <Button color='teal' fluid size='large'
-                                 onClick={this.props.einLoggAction}
-                                 //onClick={() => this.loginUser(this.state.email, this.state.password)}
-
+                              //   onClick={this.zweiFunktionen} {...this.einLoggAction}
+                               //  onClick={() => this.loginUser(this.state.email, this.state.password)}
+                               onClick={event => {
+                                this.zweiFunktionen();
+                                this.props.einLoggAction();
+                              }
+                            }
                                 >
                                     Login
               </Button>

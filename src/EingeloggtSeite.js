@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react';
 
-class Hauptseite  extends Component {
+export class Hauptseite  extends Component {
 
 
     render() {

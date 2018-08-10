@@ -1,11 +1,7 @@
 import {initialState} from './MeinStore';
 
 
-
-
-
-
-
+ 
 
 export const reducer = (state = initialState, action) => {
 
@@ -18,7 +14,9 @@ export const reducer = (state = initialState, action) => {
              
 
                 ...state, 
-                istEingeloggt: "blue"
+                //istEingeloggt: alert("hallo"),
+                istEingeloggt: "blue",
+            //    fireStart: loginUser()
                
                 
             };
