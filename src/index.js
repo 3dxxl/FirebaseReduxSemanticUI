@@ -5,16 +5,17 @@ import registerServiceWorker from './registerServiceWorker';
 import 'semantic-ui-css/semantic.min.css';
 
 import {store} from './MeinStore';
-import {AppContainer} from './SignIn';
+// import {AppContainer} from './SignIn';
+import App from './App'
 import {Provider} from 'react-redux';
 
 
 
 ReactDOM.render(
-
-<Provider store={store}>
-<AppContainer />
-</Provider>
-
-, document.getElementById('root'));
+    <Provider store={store}>
+        {/* <AppContainer /> */}
+        <App />
+    </Provider>
+    , document.getElementById('root')
+);
 registerServiceWorker();
