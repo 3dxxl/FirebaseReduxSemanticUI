@@ -37,10 +37,13 @@ export class SignIn extends Component {
                     this.props.history.push("/Hauptseite")                    
                 }
             )
-            .catch(error => console.log(error))
+            
+            .catch(error => console.log(error.toString(alert("Die Eingabe ist falsch, oder Sie sind noch nicht angemeldet"))))
     }
 
+
     render() {
+        console.log(this.state)
         return (
             <div className='login-form'>
                 {/*
