@@ -16,7 +16,7 @@ export const reducer = (state = initialState, action) => {
                 ...state, 
                 //istEingeloggt: alert("hallo"),
                 istEingeloggt: "blue",
-            //    fireStart: loginUser()
+               
                
                 
             };

@@ -12,10 +12,10 @@ export class SignIn extends Component {
     constructor(props) {
         super(props);
 
-        this.state = {
+       this.state = {
             email: '',
             password: ''
-        }
+        } 
 
         this.handleChange = this.handleChange.bind(this);
         this.handleChangepas = this.handleChangepas.bind(this);
@@ -30,7 +30,6 @@ export class SignIn extends Component {
     }
 
     zweiFunktionen = () => {
-        // this.setState(loginUser(this.state.email, this.state.password))
         loginUser(this.state.email, this.state.password)
             .then(
                 (response) => {
@@ -65,7 +64,6 @@ export class SignIn extends Component {
                             <Segment stacked>
                                 <Form.Input fluid icon='user' iconPosition='left' placeholder='E-mail address' type='email'
                                     onChange={this.handleChange}
-                                    value={this.state.email}
                                 />
                                 <Form.Input
                                     fluid
@@ -74,13 +72,11 @@ export class SignIn extends Component {
                                     placeholder='Password'
                                     type='password'
                                     onChange={this.handleChangepas}
-                                    value={this.state.password}
 
                                 />
 
                                 <Button color='teal' fluid size='large'
-                                //   onClick={this.zweiFunktionen} {...this.einLoggAction}
-                               //  onClick={() => this.loginUser(this.state.email, this.state.password)}
+                               
                                     onClick={
                                         event => {
                                             this.zweiFunktionen();
@@ -109,9 +105,5 @@ function mapStateToProps (state) {
 }
   
 //wichtig: ich musste heir SignIn eintragen anstatt (App)
-// export const AppContainer = connect(mapStateToProps, actionCreators)(SignIn);
-
-
-// export default withRouter(SignIn);
 
 export default withRouter(connect(mapStateToProps, actionCreators)(SignIn))
