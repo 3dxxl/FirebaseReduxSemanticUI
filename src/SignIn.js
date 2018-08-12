@@ -33,7 +33,8 @@ export class SignIn extends Component {
         loginUser(this.state.email, this.state.password)
             .then(
                 (response) => {
-                    console.log(response)
+                    console.log(response.user)
+                    localStorage.setItem('react-localStorage-user', JSON.stringify(response.user));
                     this.props.history.push("/Hauptseite")                    
                 }
             )

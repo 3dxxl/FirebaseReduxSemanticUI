@@ -12,6 +12,7 @@ export class App extends Component {
     return (
       <Router>
         <div className="content">
+        
         <Route exact path="/" component={Signin} />
         <Route exact path="/Hauptseite" component={Hauptseite} />
         </div>

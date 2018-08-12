@@ -15,6 +15,7 @@ firebase.initializeApp(config);
  
     return firebase.auth().signInWithEmailAndPassword(email, password);
     
+    
 }
 
 
