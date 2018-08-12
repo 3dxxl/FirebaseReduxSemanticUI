@@ -9,7 +9,8 @@ export class Hauptseite  extends Component {
 
     constructor(props) {
         super(props);
-
+        
+        // muss ich einfügen sonst geht die Funktion für den Button nicht
         this.ausloggfunktion = this.ausloggfunktion.bind(this);
     }
 
