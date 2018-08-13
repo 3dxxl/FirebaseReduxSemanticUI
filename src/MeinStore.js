@@ -5,7 +5,7 @@ export const initialState = {
 
     istEingeloggt: "red",
     fireStart:"",
-    
+    istAusgeloggt:false
 
 };
 

@@ -3,16 +3,13 @@ import React, { Component } from 'react';
 
 import { Button} from 'semantic-ui-react';
 
-
+import { withRouter } from "react-router-dom";
+import {connect} from 'react-redux';
+import {actionCreators} from './MeineActions';
 
 export class Hauptseite  extends Component {
 
-    constructor(props) {
-        super(props);
-        
-        // muss ich einfügen sonst geht die Funktion für den Button nicht
-        this.ausloggfunktion = this.ausloggfunktion.bind(this);
-    }
+    
 
 //Hier sage ich mit componentDidMount, das wenn der Client nicht der user ist soll er auf die erste Seite landen
     componentDidMount() {
@@ -20,15 +17,23 @@ export class Hauptseite  extends Component {
         if (!user) {
             this.props.history.push("/")
         }
-
     }
 
-     ausloggfunktion () {
-        localStorage.clear();
-       console.log(alert("Sie sind jetzt ausgeloggt")) 
-       this.props.history.push("/")
 
-   }
+
+//hiermit hole ich mir die Änderung aus dem jeweiligen state heraus und setze eine if Abfrage dran
+      componentWillReceiveProps(nextProps) {
+
+        if (nextProps.istAusgeloggt){
+            localStorage.clear();
+            console.log(alert("Sie sind jetzt ausgeloggt")); 
+           this.props.history.push("/");
+           }
+
+    }     
+
+
+
 
     render() {
         return (
@@ -37,12 +42,26 @@ export class Hauptseite  extends Component {
             <div>
 
             <h2>Du bist eingeloggt, das ist die HauptSeite</h2>
-            <Button onClick={this.ausloggfunktion}>Ausloggen</Button>
+            {/* <Button 
+            onClick={
+                event => {
+                    this.ausloggfunktion();
+                    this.props.ausLoggAction();
+                }
+            }
+            >Ausloggen</Button> */}
+
+            <Button onClick={this.props.ausLoggAction}>Ausloggen</Button>
 
            </div>
         );
     }
 }
 
-export default Hauptseite;
+function mapStateToProps (state) {
+    return {istAusgeloggt: state.istAusgeloggt}
+}
+  
+//wichtig: ich musste heir SignIn eintragen anstatt (App)
 
+export default withRouter(connect(mapStateToProps, actionCreators)(Hauptseite))

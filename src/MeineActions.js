@@ -5,7 +5,9 @@ export const actionCreators = {
         },
 
         ausLoggAction: (event) => {
-            return {type: "istNichtImSystem"};
+            return {type: "istNichtImSystem"}; 
+            
+
         }
 
 }

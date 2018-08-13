@@ -16,7 +16,7 @@ export const reducer = (state = initialState, action) => {
                 ...state, 
                 //istEingeloggt: alert("hallo"),
                 istEingeloggt: "blue",
-               
+                istAusgeloggt: false
                
                 
             };
@@ -25,7 +25,8 @@ export const reducer = (state = initialState, action) => {
 
             return {
                 ...state,
-                isteingeloggt: false,
+                istAusgeloggt: true,
+                
 
 
                     
