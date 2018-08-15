@@ -10,7 +10,9 @@ const config = {
 };
 firebase.initializeApp(config);
 
-//const muss ich zur funktion setzen, sonst gehts nicht
+//const muss ich zur funktion setzen, sonst gehts nicht, hier wird die firebase.auth() Funktion ausgeführt
+//dieserFunktion werden die Parapemter email &Passwort übergeben.
+//
  export const loginUser = (email, password) => {
  
     return firebase.auth().signInWithEmailAndPassword(email, password);

@@ -31,6 +31,13 @@ export class SignIn extends Component {
         this.setState({ password: event.target.value });
     }
 
+
+    //Hier wird dem Button die zweiFunktionen Funktion übergeben, in dieser Funktion
+    //wird der loginUser Funktion der Zustand der email und des Passworts übergeben und die Funktion ausgeführt
+    //nämlich die loginUser Funktion die in der FirebaseLoggin.js Datei steht
+    //stimmen die Daten überein, werden im LocalStorage die Daten beim Client gespeichert
+    //und er wird auf die zweite seite weitergeleitet.
+    //mit catch error wird eine Fehler Meldung als alert aussgegeben
     zweiFunktionen = () => {
         loginUser(this.state.email, this.state.password)
             .then(
