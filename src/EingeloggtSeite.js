@@ -11,8 +11,8 @@ import {actionCreators} from './MeineActions';
 import {putFunktion} from './PutFunk';
 import {postFunktion} from './PostFunk';
 import {getFunktion} from './GetFunk';
+import {deleteFunktion} from './DeleteFunk';
 
-import * as firebase from 'firebase';
 
 
 export class Hauptseite  extends Component {
@@ -22,29 +22,35 @@ export class Hauptseite  extends Component {
         super(props);
         this.state = {
                 
-                age: 10,
+                clients: [],
             };
         };
 
 
 //Hier sage ich mit componentDidMount, das wenn der Client nicht der user ist soll er auf die erste Seite landen
-    componentDidMount() {
+     componentDidMount() {
         let user = JSON.parse(localStorage.getItem("react-localStorage-user"));
         if (!user) {
             this.props.history.push("/")
         };
 
-        //Hier wird die Datenbank initialisiert von Firebase
-        var database = firebase.database();
-        //Hier gebe ich den genauen Pfad an den ich anzeigen möchte
-        var ref = database.ref("clients/4/age" /* + id */);
-        ref.on('value', snap => {
-            this.setState({
-                age:snap.val()
-            });
-        });
+    
+//Hier hole ich den Array aus fer Firebase raus
+/* fetch("https://reactsema.firebaseio.com/clients.json")
+      
+    .then(res => res.json())
+      .then(
+        (result) => {
+          this.setState({
+            clients: result.clients
+          });
+        } */
 
     }
+      
+
+   
+    
 
 
 
@@ -96,8 +102,12 @@ export class Hauptseite  extends Component {
              <Button onClick={()=>putFunktion()}>PUT</Button>
             */}
             <Button onClick={putFunktion}>PUT</Button>
+            <Button onClick={deleteFunktion}>DELETE</Button>
 
-            <h1>{this.state.age}</h1>
+            <h1>ARRAY</h1>
+            <ul>
+               {this.state.clients}
+            </ul>
 
            </div>
         );
