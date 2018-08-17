@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react';
 
-import { Button} from 'semantic-ui-react';
+import { Button, Table} from 'semantic-ui-react';
 
 import { withRouter } from "react-router-dom";
 import {connect} from 'react-redux';
@@ -36,15 +36,15 @@ export class Hauptseite  extends Component {
 
     
 //Hier hole ich den Array aus fer Firebase raus
-/* fetch("https://reactsema.firebaseio.com/clients.json")
+ fetch("https://reactsema.firebaseio.com/clients.json")
       
     .then(res => res.json())
       .then(
-        (result) => {
+        (res) => {
           this.setState({
-            clients: result.clients
+            clients: res
           });
-        } */
+        }) 
 
     }
       
@@ -105,9 +105,35 @@ export class Hauptseite  extends Component {
             <Button onClick={deleteFunktion}>DELETE</Button>
 
             <h1>ARRAY</h1>
-            <ul>
-               {this.state.clients}
-            </ul>
+            <Table celled>
+			    <Table.Header>
+			      <Table.Row>
+                    <Table.HeaderCell>Body</Table.HeaderCell>
+			        <Table.HeaderCell>Name</Table.HeaderCell>
+			        <Table.HeaderCell>Company</Table.HeaderCell>
+			        <Table.HeaderCell>Email</Table.HeaderCell>
+			        <Table.HeaderCell>Gender</Table.HeaderCell>
+			        <Table.HeaderCell>Age</Table.HeaderCell>
+			        <Table.HeaderCell>Address</Table.HeaderCell>
+			        <Table.HeaderCell>Phone</Table.HeaderCell>
+			      </Table.Row>
+			    </Table.Header>
+
+			    <Table.Body>
+			    	{this.state.clients.map((item, k) =>
+			      <Table.Row key={k} >
+                    <Table.Cell>{item.body}</Table.Cell>
+			        <Table.Cell>{item.name}</Table.Cell>
+			        <Table.Cell>{item.company}</Table.Cell>
+			        <Table.Cell>{item.email}</Table.Cell>
+			        <Table.Cell>{item.gender}</Table.Cell>
+			        <Table.Cell>{item.age}</Table.Cell>
+			        <Table.Cell>{item.address}</Table.Cell>
+			        <Table.Cell>{item.phone}</Table.Cell>
+			      </Table.Row>
+			      )}
+			    </Table.Body>
+			  </Table>
 
            </div>
         );
