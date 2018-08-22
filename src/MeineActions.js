@@ -6,8 +6,10 @@ export const actionCreators = {
 
         ausLoggAction: (event) => {
             return {type: "istNichtImSystem"}; 
-            
+        },
 
-        }
+        gradErhöhen: (event) => {
+            return {type: "gradWirdErhöht"}; 
+        },
 
 }

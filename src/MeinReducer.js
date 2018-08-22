@@ -26,12 +26,16 @@ export const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 istAusgeloggt: true,
-                
-
-
-                    
+                                    
                 };
 
+
+        case "gradWirdErhöht": 
+
+                return {
+                        ...state, 
+                        grad: state.grad + 5.5,
+                       }
             
 
         default:

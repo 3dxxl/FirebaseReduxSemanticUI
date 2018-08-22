@@ -1,3 +1,4 @@
+
 export function getFunktion() {
 
   //Hier muss ich die Adresse zu der Datenbank in firebase suchen und einfügen, wichtig
