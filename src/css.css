@@ -1,0 +1,23 @@
+/*es gelten in css die css Regeln*/
+
+#einButton {
+/*     background-color: #FFA88A;
+ */}
+
+#pYO {
+
+    margin: auto;
+    background-color: blueviolet;
+}
+
+
+
+.my-draggable {
+    cursor: pointer;
+    width: 200px;
+    height: 200px;
+    background-color: #cca;
+}
+
+
+

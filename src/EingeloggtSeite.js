@@ -1,7 +1,6 @@
-
 import React, { Component } from 'react';
 
-import { Button, Table, Icon} from 'semantic-ui-react';
+import { Button, Table, Icon, Grid, Image} from 'semantic-ui-react';
 
 import { withRouter } from "react-router-dom";
 import {connect} from 'react-redux';
@@ -13,10 +12,22 @@ import {postFunktion} from './PostFunk';
 import {getFunktion} from './GetFunk';
 import {deleteFunktion} from './DeleteFunk';
 
+//mein eigenes css
+import './css.css';
+
+//meine ContainerKlasse
+import ContainerKlasse from './Container';
+
+//mein Draggable Test
+import AppDragDropDemo from './Draggable';
+
+//mein chart Test
+import Chart from './Chart';
 
 export class Hauptseite  extends Component {
 
 
+  
     constructor(props){
         super(props);
         this.state = {
@@ -27,8 +38,11 @@ export class Hauptseite  extends Component {
 
                
               };
+
+
         };
 
+       
 
 //Hier sage ich mit componentDidMount, das wenn der Client nicht der user ist soll er auf die erste Seite landen
      componentDidMount() {
@@ -145,16 +159,22 @@ export class Hauptseite  extends Component {
       
       }
 
-   
+   //hier wird der Inhalt von Textarea mit der Texteingabe syncronisiert
+      handleChange = (event) => {
+        this.setState({value: event.target.value});
+      }
 
 
+      
 
     render() {
       //console.log(this.state.clients)
         return (
+          
 
 
             <div>
+
 
             <h2>Du bist eingeloggt, das ist die HauptSeite</h2>
             {/* <Button 
@@ -214,8 +234,9 @@ export class Hauptseite  extends Component {
 			    <Table.Body>
 			    	{this.state.clients.map((item, k) =>
                   <Table.Row key={k}>{/*dem Table.Row wird das Key übergben*/}
-                    {/*der Table.Cell wird der item Parameter übergeben u. der dazu gehörende Wert aus der Firebase Datenbank*/}
-                    <Table.Cell>{item.grad}</Table.Cell>
+                    {/*der Table.Cell wird der item Parameter übergeben u. der dazu gehörende Wert aus der Firebase Datenbank, 
+                       das Grad Zeichen schreibt man mit der Tastenkombination ALT 0176*/}
+                    <Table.Cell>{item.grad}°C</Table.Cell>
                     <Table.Cell>{item.time}</Table.Cell>
 			        <Table.Cell>{item.name}</Table.Cell>
 			        <Table.Cell>{item.company}</Table.Cell>
@@ -230,18 +251,42 @@ export class Hauptseite  extends Component {
 			  </Table>
 
                 
-
-                  <button className="ui icon button" 
+                {/*semantic ui bietet mir für gewisse elemente fertige css schnittstellen, wie hier
+                   z.b. color="red" welches den Hintergrund in Rot färbt, ich kann jedoch in einer
+                   externen css Datei wieder den Hintergrund auf einer anderen Farbe ändern */}
+                  <Button  id="einButton" color="green" className="ui icon button" 
                   onClick={this.handleClick}
-                  >Grad erhöhen
+                  >
+                  {/*p ist ein standart html tag, da gelten die Standart html & css regeln */}
+                  <p id="pYO" style={{color:"red", fontSize:20}}>Grad erhöhen</p>
                     <br/>
-                    <Icon className='plus icon' size='large' color='green'/>
-                  </button>
+                    <Icon className='plus icon' size='large' color='orange'/>
+                  </Button>
 
-                  <button className="ui icon button">Grad reduzieren
+                  {/*basic color="blue" ändert den rahmen in blau und die schrift in blau
+                    mit margin-left habe ich Inline den Abstand geändert.*/}
+                  <Button basic color="blue" style={{marginLeft: -8, }} className="ui icon button">Grad reduzieren
                   <br/>
                     <Icon className='minus' size='large' color='red'/>
-                  </button>
+                  </Button>
+
+                  <br/>
+                  {/*Hier muss ich bei dem textarea Tag aufjedenfall den value Wert setzten 
+                     & einen onChange Handler setzen*/}
+                  <textarea style={{width:350, height:200}} 
+                    value={this.state.value} 
+                    onChange={this.handleChange}> 
+                  </textarea>
+                  
+                  <ContainerKlasse/>
+
+                  
+                  <AppDragDropDemo/>
+
+                 
+                  <Chart/>
+                
+                  
 
            </div>
         );

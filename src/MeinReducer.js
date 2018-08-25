@@ -34,7 +34,7 @@ export const reducer = (state = initialState, action) => {
 
                 return {
                         ...state, 
-                        grad: state.grad + 5.5,
+                        grad: state.grad + 0.10,
                        }
             
 

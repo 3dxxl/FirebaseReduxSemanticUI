@@ -1,5 +1,8 @@
 .App {
   text-align: center;
+  /* die unteren zwei sind für die Draggable.js File */
+  width: 95%;
+  margin: 15px auto;
 }
 
 .App-logo {
@@ -25,4 +28,55 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+
+/* Auch hier die unteren sind für die Draggable.js */
+
+.container-drag {
+  text-align: center;
+  margin-top: 200px;
+  margin-bottom: 500px;
+}
+
+.wip {
+  position: absolute;
+  width: 150px;
+  height: 400px;
+  left: 0;
+  top: 10;
+  background-color: #EEEEEE;
+  border-right: 1px dotted;
+}
+
+.header {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  background-color: #E0E0E0;
+  width:100%;
+}
+
+.task-header {
+  display: inline-block;
+  background-color: skyblue;
+  width:100%;
+}
+
+.droppable {
+  position: absolute;
+  width: 350px;
+  height: 400px; 
+  right: 0;
+  top: 10;
+  background-color: #9E9E9E;
+  border-left: 1px dotted;
+}
+
+.draggable {
+  width: 100px;
+  height: 100px;
+  background-color: yellow;
+  margin: 5px auto;
+  line-height: 5em;
 }
