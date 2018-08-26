@@ -1,13 +1,17 @@
 import React, {Component} from 'react';
 import * as V from 'victory';
 import {VictoryChart, VictoryZoomContainer, VictoryLine, VictoryBrushContainer, VictoryAxis} from 'victory';
-
+import moment from 'moment-timezone';
 
 class Chart extends React.Component {
 
     constructor() {
       super();
       this.state = {};
+
+
+      
+
     }
   
     handleZoom(domain) {
@@ -17,11 +21,17 @@ class Chart extends React.Component {
     handleBrush(domain) {
       this.setState({zoomDomain: domain});
     }
+
+    
   
-    render() {
+    render() {  
+      
+
+        
+
       return (
         <div>
-            <VictoryChart width={600} height={350} scale={{x: "time"}}
+            <VictoryChart width={800} height={350} scale={{x: "time"}}
               containerComponent={
                 <VictoryZoomContainer responsive={false}
                   zoomDimension="x"
@@ -32,17 +42,21 @@ class Chart extends React.Component {
             >
               <VictoryLine
                 style={{
-                  data: {stroke: "tomato"}
+                  data: {stroke: "blue"}
                 }}
                 data={[
-                  {x: new Date(1982, 1, 1), y: 125},
-                  {x: new Date(1987, 1, 1), y: 257},
-                  {x: new Date(1993, 1, 1), y: 345},
-                  {x: new Date(1997, 1, 1), y: 515},
-                  {x: new Date(2001, 1, 1), y: 132},
-                  {x: new Date(2005, 1, 1), y: 305},
-                  {x: new Date(2011, 1, 1), y: 270},
-                  {x: new Date(2015, 1, 1), y: 470}
+                    {x: getDate([2018, 1, 1, 16,55, 20, 33]), y:  5 + "°C"},
+                    {x: getDate([2018, 1, 1,  8,55, 20, 33]) , y:  7 + "°C"},
+                    {x: getDate([2018, 1, 1, 12,55, 20, 33]) , y: 12 + "°C"},
+                    {x: getDate([2018, 1, 1, 14,55, 20, 33]) , y: 13 + "°C"},
+                    {x: getDate([2018, 1, 1, 16,55, 20, 33]) , y: 15 + "°C"},
+                    {x: getDate([2018, 1, 1, 18,55, 20, 33]) , y: 21 + "°C"},
+                    {x: getDate([2018, 1, 1, 20,55, 20, 33]) , y: 22 + "°C"},
+                    {x: getDate([2018, 1, 1, 22,55, 20, 33]) , y: 28 + "°C"},
+                    {x: getDate([2018, 1, 1, 23,10, 20, 33]) , y: 34 + "°C"},
+                    {x: getDate([2018, 1, 2, 24,30, 20, 33]) , y: 37 + "°C"},
+                    {x: getDate([2018, 1, 2, 24,40, 20, 33]) , y: 42 + "°C"},
+                    {x: getDate([2018, 1, 2, 24,55, 20, 33]) , y: 44 + "°C"}
                 ]}
               />
   
@@ -61,28 +75,35 @@ class Chart extends React.Component {
             >
               <VictoryAxis
                 tickValues={[
-                  new Date(1985, 1, 1),
-                  new Date(1990, 1, 1),
+                  new Date(2018, 1, 1, 1:0),
+                  /* new Date(1990, 1, 1),
                   new Date(1995, 1, 1),
                   new Date(2000, 1, 1),
                   new Date(2005, 1, 1),
-                  new Date(2010, 1, 1)
+                  new Date(2010, 1, 1) */
                 ]}
                 tickFormat={(x) => new Date(x).getFullYear()}
               />
+
+
+
               <VictoryLine
                 style={{
-                  data: {stroke: "tomato"}
+                  data: {stroke: "green"}
                 }}
                 data={[
-                  {x: new Date(1982, 1, 1), y: 125},
-                  {x: new Date(1987, 1, 1), y: 257},
-                  {x: new Date(1993, 1, 1), y: 345},
-                  {x: new Date(1997, 1, 1), y: 515},
-                  {x: new Date(2001, 1, 1), y: 132},
-                  {x: new Date(2005, 1, 1), y: 305},
-                  {x: new Date(2011, 1, 1), y: 270},
-                  {x: new Date(2015, 1, 1), y: 470}
+                    {x: new Date(2018, 1, 1,  6:55, 20, 33), y:  5 + "°C"},
+                    {x: new Date(2018, 1, 1,  8:55, 20, 33), y:  7 + "°C"},
+                    {x: new Date(2018, 1, 1, 12:55, 20, 33), y: 12 + "°C"},
+                    {x: new Date(2018, 1, 1, 14:55, 20, 33), y: 13 + "°C"},
+                    {x: new Date(2018, 1, 1, 16:55, 20, 33), y: 15 + "°C"},
+                    {x: new Date(2018, 1, 1, 18:55, 20, 33), y: 21 + "°C"},
+                    {x: new Date(2018, 1, 1, 20:55, 20, 33), y: 22 + "°C"},
+                    {x: new Date(2018, 1, 1, 22:55, 20, 33), y: 28 + "°C"},
+                    {x: new Date(2018, 1, 1, 23:10, 20, 33), y: 34 + "°C"},
+                    {x: new Date(2018, 1, 2, 24:30, 20, 33), y: 37 + "°C"},
+                    {x: new Date(2018, 1, 2, 24:40, 20, 33), y: 42 + "°C"},
+                    {x: new Date(2018, 1, 2, 24:55, 20, 33), y: 44 + "°C"}
                 ]}
               />
             </VictoryChart>
@@ -94,3 +115,12 @@ class Chart extends React.Component {
  */
 
  export default Chart;
+
+ function getDate(date) {
+        
+        var d = new Date(date[0], date[1], date[2], date[3], date[4], date[5], date[6]);
+        var n = d.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+        var f = n.split(',');
+        console.log(n)
+        return n;
+      }
