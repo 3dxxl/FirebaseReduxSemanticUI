@@ -19,7 +19,7 @@
     
 
     body: JSON.stringify({
-      grad: grad, 
+      grad: grad.toFixed(2), 
       time: date.toLocaleTimeString(),
     }),
   })
