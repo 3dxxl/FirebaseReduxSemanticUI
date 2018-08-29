@@ -80,3 +80,16 @@
   margin: 5px auto;
   line-height: 5em;
 }
+
+.App-clock {
+  font-size: 20px;
+  color: lightsalmon;
+  font-weight: bold;
+  border-width: 2px;
+  border-color: forestgreen;
+  border-style: solid;
+  margin: 5px;
+  background-color: rgb(8, 83, 14);
+  width: max-content;
+  font-family: Verdana;
+}

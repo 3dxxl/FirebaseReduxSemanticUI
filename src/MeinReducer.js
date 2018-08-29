@@ -1,8 +1,5 @@
 import {initialState} from './MeinStore';
 
-
- 
-
 export const reducer = (state = initialState, action) => {
 
     switch(action.type) {
@@ -32,10 +29,15 @@ export const reducer = (state = initialState, action) => {
 
         case "gradWirdErhöht": 
 
-                return {
-                        ...state, 
-                        grad: state.grad + 0.10,
-                       }
+        return {
+          //  ...state, 
+            grad: state.grad + 0.10,
+            data:action.data?action.data:null
+            
+           };
+
+          
+
             
 
         default:

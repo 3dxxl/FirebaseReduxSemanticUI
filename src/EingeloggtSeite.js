@@ -6,6 +6,7 @@ import { withRouter } from "react-router-dom";
 import {connect} from 'react-redux';
 import {actionCreators} from './MeineActions';
 
+
 //http Protokolle / Requests
 import {putFunktion} from './PutFunk';
 import {postFunktion} from './PostFunk';
@@ -24,6 +25,9 @@ import AppDragDropDemo from './Draggable';
 //mein chart Test
 import Chart from './Chart';
 
+//eine schöne Uhr
+import Clock from './Clock';
+
 export class Hauptseite  extends Component {
 
 
@@ -32,7 +36,8 @@ export class Hauptseite  extends Component {
         super(props);
         this.state = {
                 
-                clients: [],
+             //   clients: [],
+                data: [],
                // grad: 1,
                executed: 0
 
@@ -62,13 +67,15 @@ export class Hauptseite  extends Component {
         .then(res => res.json())
           .then(
             (res) => {
+
               this.setState({
-                clients: res
+                data: res
           });
         })
     }
       
-
+    
+    
    
     
 
@@ -78,6 +85,22 @@ export class Hauptseite  extends Component {
       //dann kann ich den Client seinen LocalStorage löschen und Ihn somit auslogen und auf die Startseite 
       //bringen
       componentWillReceiveProps(nextProps) {
+
+        console.log(nextProps.data);
+        
+           if (nextProps.data){
+            this.setState({
+              data: nextProps.data,
+               });
+
+          for (var i = 0; i < 3; i++) {
+               this.fetchClients();
+           } 
+           
+          }
+
+
+
 
         if (nextProps.istAusgeloggt){
           localStorage.clear();
@@ -92,7 +115,8 @@ export class Hauptseite  extends Component {
 
       }     
 
-      
+     
+
 
       
 
@@ -164,6 +188,7 @@ export class Hauptseite  extends Component {
         this.setState({value: event.target.value});
       }
 
+      
 
       
 
@@ -232,7 +257,7 @@ export class Hauptseite  extends Component {
                 , die Funktion wird mit einer Arrow Funktion weitergeführt und als 
                 Parameter werden item & key übergeben this.state.map((item, k) =>{}) */}
 			    <Table.Body>
-			    	{this.state.clients.map((item, k) =>
+			    	{this.state.data.map((item, k) =>
                   <Table.Row key={k}>{/*dem Table.Row wird das Key übergben*/}
                     {/*der Table.Cell wird der item Parameter übergeben u. der dazu gehörende Wert aus der Firebase Datenbank, 
                        das Grad Zeichen schreibt man mit der Tastenkombination ALT 0176*/}
@@ -285,16 +310,26 @@ export class Hauptseite  extends Component {
 
                  
                   <Chart/>
-                
                   
+                  {/*hier rufe ich die action asynccBaby auf über props ,die sich in der Functional Component actionCreators  befindet
+                     in der Datei MeineActions.js*/}
+                  <button 
+                  style={{width:100, height:100, backgroundColor: "red"}} 
+                  onClick={this.props.asyncBaby}
+                  >Ein Alert
+                  </button>
+                
+                  <Clock/>
 
            </div>
         );
     }
 }
 
+//hier werden alle Zustände zu props
+
 export function mapStateToProps (state) {
-    return {istAusgeloggt: state.istAusgeloggt, grad: state.grad}
+    return {istAusgeloggt: state.istAusgeloggt, grad: state.grad, data: state.data}
 }
   
 //wichtig: ich musste heir Hauptseite eintragen anstatt (App)
