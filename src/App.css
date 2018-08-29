@@ -81,7 +81,7 @@
   line-height: 5em;
 }
 
-.App-clock {
+.clockText {
   font-size: 20px;
   color: lightsalmon;
   font-weight: bold;
@@ -92,4 +92,35 @@
   background-color: rgb(8, 83, 14);
   width: max-content;
   font-family: Verdana;
+  /*damit dir uhrzeit in der mitte ist*/
+  display: block;
+  margin-left: auto;
+  margin-right: auto  
+}
+
+@font-face {
+  font-family: digital;
+  src: url(DigitalFonts/digital-7.ttf)
+}
+
+.App-clock {
+  font-size: 50px;
+  color: rgb(20, 43, 250);
+  font-weight: bold;
+  border-width: 2px;
+  border-color: forestgreen;
+  border-style: solid;
+  margin: 5px;
+  background-color: rgb(0, 0, 0);
+  width: 200px;
+  text-align: center;
+  font-family: digital;
+  /*damit dir uhrzeit in der mitte ist*/
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  /*das auch der Text innerhalb des Block mittig ist*/
+  text-align: center;
+  
+   
 }

@@ -24,9 +24,12 @@ class Clock extends Component {
     }
     render() {
       return (
+          <div>
+          <p className="clockText">Digitale Uhrzeit</p>
         <p className="App-clock">
-          Aktuelle Uhrzeit {this.state.time}
+          {this.state.time}
         </p>
+        </div>
       );
     }
   }
